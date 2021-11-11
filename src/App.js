@@ -11,7 +11,6 @@ class App extends React.Component {
   };
 
   componentDidMount(){
-    console.log('did mount runs')
     axios.get(`https://api.github.com/users/${this.state.input}`)
       .then(resp=> {
         this.setState({
@@ -24,7 +23,6 @@ class App extends React.Component {
       })
   }
   componentDidUpdate(prevProps, prevState){
-    console.log('did update runs')
     if (this.state.user !== prevState.user){
       axios.get(`https://api.github.com/users/${this.state.user.login}/followers`)
       .then(resp=> {
